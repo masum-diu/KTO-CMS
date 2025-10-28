@@ -49,11 +49,11 @@ const menuItems = [
     icon: <GpsFixedIcon />,
     text: "Location Tracking",
   },
-  {
-    id: "app-website-usage",
-    icon: <TrackChangesIcon />,
-    text: "App & Website Usage",
-  },
+  // {
+  //   id: "app-website-usage",
+  //   icon: <TrackChangesIcon />,
+  //   text: "App & Website Usage",
+  // },
   {
     id: "parental-controls",
     icon: <SupervisorAccountIcon />,
@@ -79,26 +79,26 @@ const menuItems = [
     icon: <NotificationsActiveIcon />,
     text: "Push Notifications",
   },
-  {
-    id: "family-chat",
-    icon: <ChatIcon />,
-    text: "Family Chat & Communication",
-  },
-  {
-    id: "reports-analytics",
-    icon: <AssessmentIcon />,
-    text: "Reports & Analytics",
-  },
-  {
-    id: "system-settings",
-    icon: <SettingsIcon />,
-    text: "System Settings",
-  },
-  {
-    id: "audit-logs",
-    icon: <HistoryIcon />,
-    text: "Audit Logs",
-  },
+  // {
+  //   id: "family-chat",
+  //   icon: <ChatIcon />,
+  //   text: "Family Chat & Communication",
+  // },
+  // {
+  //   id: "reports-analytics",
+  //   icon: <AssessmentIcon />,
+  //   text: "Reports & Analytics",
+  // },
+  // {
+  //   id: "system-settings",
+  //   icon: <SettingsIcon />,
+  //   text: "System Settings",
+  // },
+  // {
+  //   id: "audit-logs",
+  //   icon: <HistoryIcon />,
+  //   text: "Audit Logs",
+  // },
 ];
 
 const CrmLayout = ({ children }) => {
@@ -149,33 +149,35 @@ const CrmLayout = ({ children }) => {
           height: "100%"
         }}
       >
-        {/* Logo */}
-        <Box sx={{
-          px: 3.5,
-          pt: 3,
-          pb: 2,
-          flexShrink: 0
-        }}>
-          <Stack
-            direction="column"
-            spacing={1}
-            justifyContent="center"
-            alignItems={"center"}
-          >
-            <img src="/logoImage.png" alt="Logo" width={100} />
-            <br />
-            <Typography
-              fontSize={14}
-              className="light"
-              textAlign={"center"}
-              sx={{ color: "#fff" }}
+      
+          <Box sx={{
+            px: 3.5,
+            pt: 3,
+            pb: 2,
+            flexShrink: 0
+          }}>
+            <Stack
+              direction="column"
+              spacing={1}
+              justifyContent="center"
+              alignItems={"center"}
             >
-              KTO Content Management System
-            </Typography>
-          </Stack>
-        </Box>
+              <img src="/logoImage.png" alt="Logo" width={100} style={{boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.3)',padding
+:'10px',borderRadius:'10%', 
+              }} />
+              <br />
+              <Typography
+                fontSize={14}
+                className="light"
+                textAlign={"center"}
+                sx={{ color: "#fff" }}
+              >
+                KTO Content Management System
+              </Typography>
+            </Stack>
+          </Box>
 
-        {/* Scrollable Menu Items */}
+          {/* Scrollable Menu Items */}
         <Box sx={{
           flex: 1,
           overflowY: "auto",

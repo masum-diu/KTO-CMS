@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-import CrmLayout from './components/CrmLayout';
 import {
   Avatar,
   Box,
@@ -14,10 +12,8 @@ import {
   Typography,
   LinearProgress,
   Button,
-  Stack,
-  Select,
-  MenuItem,
 } from "@mui/material";
+import CrmLayout from "./components/CrmLayout";
 import DevicesIcon from "@mui/icons-material/Devices";
 import PeopleIcon from "@mui/icons-material/People";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
@@ -26,6 +22,8 @@ import WarningIcon from "@mui/icons-material/Warning";
 import BatteryAlertIcon from "@mui/icons-material/BatteryAlert";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+
+// Mock Data
 const overviewStats = {
   totalDevices: 3,
   onlineDevices: 2,
@@ -82,49 +80,15 @@ const StatCard = ({ title, value, icon }) => (
   </Card>
 );
 
-function Home() {
-  const [age, setAge] = useState(10);
-  // Add this state and data in your component
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+const DashboardPage = () => {
   return (
     <CrmLayout>
-      <Box >
-        {/* Header */}
-        <Stack direction={"row"} justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
-          <Typography fontSize={20} className='bold'>
-            Hello, <span style={{ color: "#9B1FE8" }}>Administrator</span>
-          </Typography>
-          {/* <Stack direction="row" spacing={1} alignItems="center" sx={{ boxShadow: '0px 2px 4px rgba(18, 165, 81, 0.05)', borderRadius: 2, backgroundColor: "#fff", px: 2 }}>
-            <Typography fontSize={16} className='SemiBold'>
-              Sort By
-            </Typography>
-            <Select
-              value={age}
-              onChange={handleChange}
-              sx={{
-                border: "none",
-                boxShadow: "none",
-                '.MuiOutlinedInput-notchedOutline': {
-                  border: 'none',
-                },
-                '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
-                  border: 'none',
-                },
-                '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  border: 'none',
-                },
-              }}
-            >
-              <MenuItem value={10} sx={{ color: "#000" }}>This Year</MenuItem>
+      <Box>
+        <Typography variant="h4" sx={{ mb: 3, fontWeight: "bold", color: "#073064" }}>
+          Dashboard
+        </Typography>
 
-            </Select>
-          </Stack> */}
-
-        </Stack>
-  {/* Overview Section */}
+        {/* Overview Section */}
         <Grid container spacing={3} sx={{ mb: 3 }}>
           <Grid item xs={12} sm={6} md={3}>
             <StatCard title="Total Devices" value={overviewStats.totalDevices} icon={<DevicesIcon />} />
@@ -220,6 +184,6 @@ function Home() {
       </Box>
     </CrmLayout>
   );
-}
+};
 
-export default Home;
+export default DashboardPage;
