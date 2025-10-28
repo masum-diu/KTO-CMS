@@ -100,7 +100,7 @@ const DeviceControlPage = () => {
   return (
     <CrmLayout>
       <Box>
-        <Typography variant="h4" sx={{ mb: 3, fontWeight: "bold", color: "#073064" }}>
+        <Typography variant="h4" sx={{ mb: 3, fontWeight: "bold", color: "#073064",fontSize:20 }}>
           Device Control
         </Typography>
         <Grid container spacing={3}>

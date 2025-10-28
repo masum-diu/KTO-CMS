@@ -167,12 +167,12 @@ const CrmLayout = ({ children }) => {
               }} />
               <br />
               <Typography
-                fontSize={14}
-                className="light"
+                fontSize={16}
+                className="Bold"
                 textAlign={"center"}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#fff" ,fontWeight:'bold'}}
               >
-                KTO Content Management System
+                KTO <br />Content Management System
               </Typography>
             </Stack>
           </Box>
@@ -184,7 +184,7 @@ const CrmLayout = ({ children }) => {
           px: 2,
           pb: 2
         }}>
-          <List sx={{ py: 0 }}>
+          <List sx={{ py: 1 }}>
             {menuItems.map((item, index) => (
               <Box key={index}>
                 <ListItem
