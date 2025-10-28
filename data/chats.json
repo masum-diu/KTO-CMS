@@ -1,0 +1,889 @@
+{
+  "allChatContacts": [
+    {
+      "id": 1,
+      "name": "Administrator",
+      "lastMessage": "ff",
+      "timestamp": "12:28 PM",
+      "avatar": "A",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 2,
+      "name": "Mohammed",
+      "lastMessage": "Hii",
+      "timestamp": "07:34 PM",
+      "avatar": "M",
+      "unread": 2,
+      "type": "all"
+    },
+    {
+      "id": 3,
+      "name": "Janvi",
+      "lastMessage": "Hu",
+      "timestamp": "03:27 PM",
+      "avatar": "J",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 4,
+      "name": "Saloni",
+      "lastMessage": "Hehshsjs",
+      "timestamp": "06:01 PM",
+      "avatar": "S",
+      "unread": 1,
+      "type": "all"
+    },
+    {
+      "id": 5,
+      "name": "Administrator",
+      "lastMessage": "Uvuvjv",
+      "timestamp": "04:50 PM",
+      "avatar": "A",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 6,
+      "name": "Administrator",
+      "lastMessage": "hiiiiii",
+      "timestamp": "04:46 PM",
+      "avatar": "A",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 7,
+      "name": "Administrator",
+      "lastMessage": "2",
+      "timestamp": "09:13 AM",
+      "avatar": "A",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 8,
+      "name": "Sarah Johnson",
+      "lastMessage": "Can you help me with my order?",
+      "timestamp": "08:15 AM",
+      "avatar": "S",
+      "unread": 3,
+      "type": "all"
+    },
+    {
+      "id": 9,
+      "name": "David Chen",
+      "lastMessage": "Order #12345 is ready for pickup",
+      "timestamp": "07:45 AM",
+      "avatar": "D",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 10,
+      "name": "Emily Rodriguez",
+      "lastMessage": "Thank you for the quick delivery!",
+      "timestamp": "07:20 AM",
+      "avatar": "E",
+      "unread": 1,
+      "type": "all"
+    },
+    {
+      "id": 11,
+      "name": "Michael Thompson",
+      "lastMessage": "Is there a discount available?",
+      "timestamp": "06:55 AM",
+      "avatar": "M",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 12,
+      "name": "Lisa Wang",
+      "lastMessage": "I need to change my delivery address",
+      "timestamp": "06:30 AM",
+      "avatar": "L",
+      "unread": 2,
+      "type": "all"
+    },
+    {
+      "id": 13,
+      "name": "Robert Kim",
+      "lastMessage": "Great service as always!",
+      "timestamp": "06:15 AM",
+      "avatar": "R",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 14,
+      "name": "Jennifer Lee",
+      "lastMessage": "When will my order arrive?",
+      "timestamp": "06:00 AM",
+      "avatar": "J",
+      "unread": 1,
+      "type": "all"
+    },
+    {
+      "id": 15,
+      "name": "Christopher Brown",
+      "lastMessage": "The product quality is excellent",
+      "timestamp": "05:45 AM",
+      "avatar": "C",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 16,
+      "name": "Amanda Wilson",
+      "lastMessage": "Can I get a refund?",
+      "timestamp": "05:30 AM",
+      "avatar": "A",
+      "unread": 4,
+      "type": "all"
+    },
+    {
+      "id": 17,
+      "name": "Daniel Martinez",
+      "lastMessage": "Do you have this in blue?",
+      "timestamp": "05:15 AM",
+      "avatar": "D",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 18,
+      "name": "Rachel Green",
+      "lastMessage": "Perfect timing on the delivery",
+      "timestamp": "05:00 AM",
+      "avatar": "R",
+      "unread": 1,
+      "type": "all"
+    },
+    {
+      "id": 19,
+      "name": "Thomas Anderson",
+      "lastMessage": "Is there a loyalty program?",
+      "timestamp": "04:45 AM",
+      "avatar": "T",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 20,
+      "name": "Nicole Taylor",
+      "lastMessage": "The packaging was damaged",
+      "timestamp": "04:30 AM",
+      "avatar": "N",
+      "unread": 2,
+      "type": "all"
+    },
+    {
+      "id": 21,
+      "name": "Kevin Garcia",
+      "lastMessage": "Can you expedite my order?",
+      "timestamp": "04:15 AM",
+      "avatar": "K",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 22,
+      "name": "Michelle Davis",
+      "lastMessage": "Love the new collection!",
+      "timestamp": "04:00 AM",
+      "avatar": "M",
+      "unread": 1,
+      "type": "all"
+    },
+    {
+      "id": 23,
+      "name": "Steven Miller",
+      "lastMessage": "Do you ship internationally?",
+      "timestamp": "03:45 AM",
+      "avatar": "S",
+      "unread": 0,
+      "type": "all"
+    },
+    {
+      "id": 24,
+      "name": "Jessica White",
+      "lastMessage": "The size chart was very helpful",
+      "timestamp": "03:30 AM",
+      "avatar": "J",
+      "unread": 3,
+      "type": "all"
+    },
+    {
+      "id": 25,
+      "name": "Ryan Clark",
+      "lastMessage": "Can I get a bulk discount?",
+      "timestamp": "03:15 AM",
+      "avatar": "R",
+      "unread": 0,
+      "type": "all"
+    }
+  ],
+  "riderChatContacts": [
+    {
+      "id": 101,
+      "name": "Rider John",
+      "lastMessage": "Pickup location confirmed",
+      "timestamp": "11:30 AM",
+      "avatar": "J",
+      "unread": 1,
+      "type": "rider"
+    },
+    {
+      "id": 102,
+      "name": "Rider Sarah",
+      "lastMessage": "On my way",
+      "timestamp": "10:15 AM",
+      "avatar": "S",
+      "unread": 0,
+      "type": "rider"
+    },
+    {
+      "id": 103,
+      "name": "Rider Mike",
+      "lastMessage": "Delivery completed",
+      "timestamp": "09:45 AM",
+      "avatar": "M",
+      "unread": 2,
+      "type": "rider"
+    },
+    {
+      "id": 104,
+      "name": "Rider Lisa",
+      "lastMessage": "Traffic delay, will be 10 mins late",
+      "timestamp": "09:30 AM",
+      "avatar": "L",
+      "unread": 0,
+      "type": "rider"
+    },
+    {
+      "id": 105,
+      "name": "Rider David",
+      "lastMessage": "Order picked up successfully",
+      "timestamp": "09:15 AM",
+      "avatar": "D",
+      "unread": 1,
+      "type": "rider"
+    }
+  ],
+  "driverChatContacts": [
+    {
+      "id": 201,
+      "name": "Driver Alex",
+      "lastMessage": "Vehicle maintenance needed",
+      "timestamp": "02:20 PM",
+      "avatar": "A",
+      "unread": 0,
+      "type": "driver"
+    },
+    {
+      "id": 202,
+      "name": "Driver Emma",
+      "lastMessage": "Route updated",
+      "timestamp": "01:45 PM",
+      "avatar": "E",
+      "unread": 1,
+      "type": "driver"
+    },
+    {
+      "id": 203,
+      "name": "Driver Tom",
+      "lastMessage": "Shift completed",
+      "timestamp": "12:30 PM",
+      "avatar": "T",
+      "unread": 0,
+      "type": "driver"
+    },
+    {
+      "id": 204,
+      "name": "Driver Maria",
+      "lastMessage": "Fuel refill completed",
+      "timestamp": "12:15 PM",
+      "avatar": "M",
+      "unread": 2,
+      "type": "driver"
+    },
+    {
+      "id": 205,
+      "name": "Driver Carlos",
+      "lastMessage": "New route assigned",
+      "timestamp": "12:00 PM",
+      "avatar": "C",
+      "unread": 0,
+      "type": "driver"
+    }
+  ],
+  "allMessages": {
+    "1": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Hi",
+        "timestamp": "04:12 PM",
+        "avatar": "A"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "ff",
+        "timestamp": "12:28 PM",
+        "avatar": "A"
+      }
+    ],
+    "2": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Hello there!",
+        "timestamp": "07:30 PM",
+        "avatar": "M"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Hii",
+        "timestamp": "07:34 PM",
+        "avatar": "A"
+      }
+    ],
+    "3": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "How are you?",
+        "timestamp": "03:25 PM",
+        "avatar": "J"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Hu",
+        "timestamp": "03:27 PM",
+        "avatar": "A"
+      }
+    ],
+    "4": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Hehshsjs",
+        "timestamp": "06:01 PM",
+        "avatar": "S"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "I understand",
+        "timestamp": "06:02 PM",
+        "avatar": "A"
+      }
+    ],
+    "5": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Uvuvjv",
+        "timestamp": "04:50 PM",
+        "avatar": "A"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Got it",
+        "timestamp": "04:51 PM",
+        "avatar": "A"
+      }
+    ],
+    "6": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "hiiiiii",
+        "timestamp": "04:46 PM",
+        "avatar": "A"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Hello!",
+        "timestamp": "04:47 PM",
+        "avatar": "A"
+      }
+    ],
+    "7": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "2",
+        "timestamp": "09:13 AM",
+        "avatar": "A"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Understood",
+        "timestamp": "09:14 AM",
+        "avatar": "A"
+      }
+    ],
+    "8": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Can you help me with my order?",
+        "timestamp": "08:15 AM",
+        "avatar": "S"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Of course! What's your order number?",
+        "timestamp": "08:16 AM",
+        "avatar": "A"
+      }
+    ],
+    "9": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Order #12345 is ready for pickup",
+        "timestamp": "07:45 AM",
+        "avatar": "D"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Great! Please collect it from our store",
+        "timestamp": "07:46 AM",
+        "avatar": "A"
+      }
+    ],
+    "10": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Thank you for the quick delivery!",
+        "timestamp": "07:20 AM",
+        "avatar": "E"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "You're welcome! We're glad you're satisfied",
+        "timestamp": "07:21 AM",
+        "avatar": "A"
+      }
+    ],
+    "11": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Is there a discount available?",
+        "timestamp": "06:55 AM",
+        "avatar": "M"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Yes, we have a 10% off promotion running",
+        "timestamp": "06:56 AM",
+        "avatar": "A"
+      }
+    ],
+    "12": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "I need to change my delivery address",
+        "timestamp": "06:30 AM",
+        "avatar": "L"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "No problem, please provide the new address",
+        "timestamp": "06:31 AM",
+        "avatar": "A"
+      }
+    ],
+    "13": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Great service as always!",
+        "timestamp": "06:15 AM",
+        "avatar": "R"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Thank you for your kind words!",
+        "timestamp": "06:16 AM",
+        "avatar": "A"
+      }
+    ],
+    "14": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "When will my order arrive?",
+        "timestamp": "06:00 AM",
+        "avatar": "J"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Your order will arrive tomorrow between 2-4 PM",
+        "timestamp": "06:01 AM",
+        "avatar": "A"
+      }
+    ],
+    "15": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "The product quality is excellent",
+        "timestamp": "05:45 AM",
+        "avatar": "C"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "We're glad you love our products!",
+        "timestamp": "05:46 AM",
+        "avatar": "A"
+      }
+    ],
+    "16": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Can I get a refund?",
+        "timestamp": "05:30 AM",
+        "avatar": "A"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "I'll help you process the refund",
+        "timestamp": "05:31 AM",
+        "avatar": "A"
+      }
+    ],
+    "17": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Do you have this in blue?",
+        "timestamp": "05:15 AM",
+        "avatar": "D"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Yes, we have it in blue. Would you like to order?",
+        "timestamp": "05:16 AM",
+        "avatar": "A"
+      }
+    ],
+    "18": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Perfect timing on the delivery",
+        "timestamp": "05:00 AM",
+        "avatar": "R"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "We always strive for punctuality!",
+        "timestamp": "05:01 AM",
+        "avatar": "A"
+      }
+    ],
+    "19": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Is there a loyalty program?",
+        "timestamp": "04:45 AM",
+        "avatar": "T"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Yes, we have a rewards program. Let me explain",
+        "timestamp": "04:46 AM",
+        "avatar": "A"
+      }
+    ],
+    "20": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "The packaging was damaged",
+        "timestamp": "04:30 AM",
+        "avatar": "N"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "I apologize for that. We'll send a replacement",
+        "timestamp": "04:31 AM",
+        "avatar": "A"
+      }
+    ],
+    "21": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Can you expedite my order?",
+        "timestamp": "04:15 AM",
+        "avatar": "K"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "I'll check if we can expedite it for you",
+        "timestamp": "04:16 AM",
+        "avatar": "A"
+      }
+    ],
+    "22": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Love the new collection!",
+        "timestamp": "04:00 AM",
+        "avatar": "M"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Thank you! We're excited about it too",
+        "timestamp": "04:01 AM",
+        "avatar": "A"
+      }
+    ],
+    "23": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Do you ship internationally?",
+        "timestamp": "03:45 AM",
+        "avatar": "S"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Yes, we ship to most countries",
+        "timestamp": "03:46 AM",
+        "avatar": "A"
+      }
+    ],
+    "24": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "The size chart was very helpful",
+        "timestamp": "03:30 AM",
+        "avatar": "J"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Great! We're glad it helped you choose the right size",
+        "timestamp": "03:31 AM",
+        "avatar": "A"
+      }
+    ],
+    "25": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Can I get a bulk discount?",
+        "timestamp": "03:15 AM",
+        "avatar": "R"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Yes, we offer discounts for bulk orders",
+        "timestamp": "03:16 AM",
+        "avatar": "A"
+      }
+    ]
+  },
+  "riderMessages": {
+    "101": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Pickup location confirmed",
+        "timestamp": "11:30 AM",
+        "avatar": "J"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Great!",
+        "timestamp": "11:32 AM",
+        "avatar": "A"
+      }
+    ],
+    "102": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "On my way",
+        "timestamp": "10:15 AM",
+        "avatar": "S"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Safe journey!",
+        "timestamp": "10:16 AM",
+        "avatar": "A"
+      }
+    ],
+    "103": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Delivery completed",
+        "timestamp": "09:45 AM",
+        "avatar": "M"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Thank you!",
+        "timestamp": "09:46 AM",
+        "avatar": "A"
+      }
+    ],
+    "104": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Traffic delay, will be 10 mins late",
+        "timestamp": "09:30 AM",
+        "avatar": "L"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "No problem, stay safe!",
+        "timestamp": "09:31 AM",
+        "avatar": "A"
+      }
+    ],
+    "105": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Order picked up successfully",
+        "timestamp": "09:15 AM",
+        "avatar": "D"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Excellent! Proceed with delivery",
+        "timestamp": "09:16 AM",
+        "avatar": "A"
+      }
+    ]
+  },
+  "driverMessages": {
+    "201": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Vehicle maintenance needed",
+        "timestamp": "02:20 PM",
+        "avatar": "A"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "I'll check it",
+        "timestamp": "02:22 PM",
+        "avatar": "A"
+      }
+    ],
+    "202": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Route updated",
+        "timestamp": "01:45 PM",
+        "avatar": "E"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Noted",
+        "timestamp": "01:47 PM",
+        "avatar": "A"
+      }
+    ],
+    "203": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Shift completed",
+        "timestamp": "12:30 PM",
+        "avatar": "T"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Good work!",
+        "timestamp": "12:31 PM",
+        "avatar": "A"
+      }
+    ],
+    "204": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "Fuel refill completed",
+        "timestamp": "12:15 PM",
+        "avatar": "M"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Perfect! Ready for next shift",
+        "timestamp": "12:16 PM",
+        "avatar": "A"
+      }
+    ],
+    "205": [
+      {
+        "id": 1,
+        "sender": "them",
+        "content": "New route assigned",
+        "timestamp": "12:00 PM",
+        "avatar": "C"
+      },
+      {
+        "id": 2,
+        "sender": "me",
+        "content": "Route details sent to your device",
+        "timestamp": "12:01 PM",
+        "avatar": "A"
+      }
+    ]
+  }
+}
