@@ -39,46 +39,46 @@ const menuItems = [
     icon: <DashboardIcon />,
     text: "Dashboard",
   },
-  // {
-  //   id: "user-management",
-  //   icon: <PeopleIcon />,
-  //   text: "User Management",
-  // },
-  // {
-  //   id: "location-tracking",
-  //   icon: <GpsFixedIcon />,
-  //   text: "Location Tracking",
-  // },
+  {
+    // id: "user-management",
+    icon: <PeopleIcon />,
+    text: "User Management",
+  },
+  {
+    // id: "location-tracking",
+    icon: <GpsFixedIcon />,
+    text: "Location Tracking",
+  },
   // {
   //   id: "app-website-usage",
   //   icon: <TrackChangesIcon />,
   //   text: "App & Website Usage",
   // },
-  // {
-  //   id: "parental-controls",
-  //   icon: <SupervisorAccountIcon />,
-  //   text: "Parental Controls",
-  // },
-  // {
-  //   id: "geofencing",
-  //   icon: <MapIcon />,
-  //   text: "Geofencing & Safe Zones",
-  // },
-  // {
-  //   id: "sos-emergency",
-  //   icon: <SosIcon />,
-  //   text: "SOS & Emergency",
-  // },
-  // {
-  //   id: "device-control",
-  //   icon: <PhonelinkSetupIcon />,
-  //   text: "Device Control",
-  // },
-  // {
-  //   id: "push-notifications",
-  //   icon: <NotificationsActiveIcon />,
-  //   text: "Push Notifications",
-  // },
+  {
+    // id: "parental-controls",
+    icon: <SupervisorAccountIcon />,
+    text: "Parental Controls",
+  },
+  {
+    // id: "geofencing",
+    icon: <MapIcon />,
+    text: "Geofencing & Safe Zones",
+  },
+  {
+    // id: "sos-emergency",
+    icon: <SosIcon />,
+    text: "SOS & Emergency",
+  },
+  {
+    // id: "device-control",
+    icon: <PhonelinkSetupIcon />,
+    text: "Device Control",
+  },
+  {
+    // id: "push-notifications",
+    icon: <NotificationsActiveIcon />,
+    text: "Push Notifications",
+  },
   // {
   //   id: "family-chat",
   //   icon: <ChatIcon />,
@@ -142,7 +142,7 @@ const CrmLayout = ({ children }) => {
       {/* Sidebar */}
       <Box
         sx={{
-          backgroundColor: "#9B1FE8",
+          backgroundColor: "#fff",
           width: "300px",
           display: "flex",
           flexDirection: "column",
@@ -162,15 +162,13 @@ const CrmLayout = ({ children }) => {
               justifyContent="center"
               alignItems={"center"}
             >
-              <img src="/logoImage.png" alt="Logo" width={100} style={{boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.3)',padding
-:'10px',borderRadius:'10%', 
-              }} />
+              <img src="/logoImage.png" alt="Logo" width={100}  />
               <br />
               <Typography
                 fontSize={16}
                 className="Bold"
                 textAlign={"center"}
-                sx={{ color: "#fff" ,fontWeight:'bold'}}
+                sx={{ color: "#000" ,fontWeight:'bold'}}
               >
                 KTO <br />Content Management System
               </Typography>
@@ -192,15 +190,15 @@ const CrmLayout = ({ children }) => {
                     cursor: "pointer",
                     width: "100%",
                     height: "48px",
-                    color: isSelected(item.id === 'dashboard' ? 'home' : item.id) ? "#fff" : "#fff",
+                    color: isSelected(item.id === 'dashboard' ? 'home' : item.id) ? "#fff" : "#000",
                     borderRadius: "12px",
                     mb: 1,
                     backgroundColor: isSelected(item.id === 'dashboard' ? 'home' : item.id)
-                      ? "#ffffff60"
+                      ? "#9B1FE8"
                       : "transparent",
                     "&:hover": {
                       backgroundColor: isSelected(item.id === 'dashboard' ? 'home' : item.id)
-                        ? "#ffffff60"
+                        ? "#9B1FE8"
                         : "rgba(255, 255, 255, 0.1)",
                     },
                   }}
@@ -208,7 +206,7 @@ const CrmLayout = ({ children }) => {
                 >
                   <ListItemIcon
                     sx={{
-                      color: isSelected(item.id === 'dashboard' ? 'home' : item.id) ? "#fff" : "#fff",
+                      color: isSelected(item.id === 'dashboard' ? 'home' : item.id) ? "#fff" : "#000",
                       minWidth: "40px",
                     }}
                   >
