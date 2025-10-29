@@ -39,46 +39,46 @@ const menuItems = [
     icon: <DashboardIcon />,
     text: "Dashboard",
   },
-  {
-    id: "user-management",
-    icon: <PeopleIcon />,
-    text: "User Management",
-  },
-  {
-    id: "location-tracking",
-    icon: <GpsFixedIcon />,
-    text: "Location Tracking",
-  },
+  // {
+  //   id: "user-management",
+  //   icon: <PeopleIcon />,
+  //   text: "User Management",
+  // },
+  // {
+  //   id: "location-tracking",
+  //   icon: <GpsFixedIcon />,
+  //   text: "Location Tracking",
+  // },
   // {
   //   id: "app-website-usage",
   //   icon: <TrackChangesIcon />,
   //   text: "App & Website Usage",
   // },
-  {
-    id: "parental-controls",
-    icon: <SupervisorAccountIcon />,
-    text: "Parental Controls",
-  },
-  {
-    id: "geofencing",
-    icon: <MapIcon />,
-    text: "Geofencing & Safe Zones",
-  },
-  {
-    id: "sos-emergency",
-    icon: <SosIcon />,
-    text: "SOS & Emergency",
-  },
-  {
-    id: "device-control",
-    icon: <PhonelinkSetupIcon />,
-    text: "Device Control",
-  },
-  {
-    id: "push-notifications",
-    icon: <NotificationsActiveIcon />,
-    text: "Push Notifications",
-  },
+  // {
+  //   id: "parental-controls",
+  //   icon: <SupervisorAccountIcon />,
+  //   text: "Parental Controls",
+  // },
+  // {
+  //   id: "geofencing",
+  //   icon: <MapIcon />,
+  //   text: "Geofencing & Safe Zones",
+  // },
+  // {
+  //   id: "sos-emergency",
+  //   icon: <SosIcon />,
+  //   text: "SOS & Emergency",
+  // },
+  // {
+  //   id: "device-control",
+  //   icon: <PhonelinkSetupIcon />,
+  //   text: "Device Control",
+  // },
+  // {
+  //   id: "push-notifications",
+  //   icon: <NotificationsActiveIcon />,
+  //   text: "Push Notifications",
+  // },
   // {
   //   id: "family-chat",
   //   icon: <ChatIcon />,
