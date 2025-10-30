@@ -40,12 +40,12 @@ const menuItems = [
     text: "Dashboard",
   },
   {
-    // id: "user-management",
+    id: "user-management",
     icon: <PeopleIcon />,
     text: "User Management",
   },
   {
-    // id: "location-tracking",
+    id: "location-tracking",
     icon: <GpsFixedIcon />,
     text: "Location Tracking",
   },
@@ -55,27 +55,27 @@ const menuItems = [
   //   text: "App & Website Usage",
   // },
   {
-    // id: "parental-controls",
+    id: "parental-controls",
     icon: <SupervisorAccountIcon />,
     text: "Parental Controls",
   },
   {
-    // id: "geofencing",
+    id: "geofencing",
     icon: <MapIcon />,
     text: "Geofencing & Safe Zones",
   },
   {
-    // id: "sos-emergency",
+    id: "sos-emergency",
     icon: <SosIcon />,
     text: "SOS & Emergency",
   },
   {
-    // id: "device-control",
+    id: "device-control",
     icon: <PhonelinkSetupIcon />,
     text: "Device Control",
   },
   {
-    // id: "push-notifications",
+    id: "push-notifications",
     icon: <NotificationsActiveIcon />,
     text: "Push Notifications",
   },
