@@ -174,12 +174,14 @@ const ParentalControlsPage = () => {
                 <Tab label="Screen Time Rules" disabled={!selectedChild} />
                 <Tab label="App Management" disabled={!selectedChild} />
                 <Tab label="Keyword Alerts" disabled={!selectedChild} />
+                <Tab label="Screenshots" disabled={!selectedChild} />
               </Tabs>
             </Box>
           </CardContent>
 
           {selectedChild ? (
             <>
+              {/* Previous TabPanels ... */}
               <TabPanel value={tabIndex} index={0}>
                 <Typography variant="h6" gutterBottom>Daily Time Limits</Typography>
                 <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 4 }}>
@@ -239,6 +241,43 @@ const ParentalControlsPage = () => {
                     <Chip key={keyword} label={keyword} onDelete={() => handleDeleteKeyword(keyword)} />
                   ))}
                 </Box>
+              </TabPanel>
+
+              <TabPanel value={tabIndex} index={3}>
+                <Typography variant="h6" gutterBottom>Device Screenshots</Typography>
+                <Grid container spacing={2}>
+                  {(childrenList.find(c => c.child.id === selectedChild)?.screenshots || []).length > 0 ? (
+                    childrenList.find(c => c.child.id === selectedChild).screenshots.map((s) => (
+                      <Grid item xs={12} sm={6} md={4} key={s.id}>
+                        <Card variant="outlined">
+                          <Box
+                            component="img"
+                            src={`https://ktobackend.etherstaging.xyz${s.image_url}`}
+                            alt="Screenshot"
+                            sx={{
+                              width: '100%',
+                              height: 200,
+                              objectFit: 'cover',
+                              cursor: 'pointer'
+                            }}
+                            onClick={() => window.open(`https://ktobackend.etherstaging.xyz${s.image_url}`, '_blank')}
+                          />
+                          <CardContent sx={{ py: 1, px: 2, '&:last-child': { pb: 1 } }}>
+                            <Typography variant="caption" color="text.secondary">
+                              Captured: {new Date(s.createdAt).toLocaleString()}
+                            </Typography>
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    ))
+                  ) : (
+                    <Grid item xs={12}>
+                      <Box sx={{ textAlign: 'center', py: 4 }}>
+                        <Typography color="text.secondary">No screenshots available for this child.</Typography>
+                      </Box>
+                    </Grid>
+                  )}
+                </Grid>
               </TabPanel>
             </>
           ) : (
