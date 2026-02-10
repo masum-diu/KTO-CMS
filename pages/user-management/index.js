@@ -211,7 +211,15 @@ const UserManagementPage = () => {
                     <TableBody>
                       {paginatedUsers.length > 0 ? (
                         paginatedUsers.map((user) => (
-                          <TableRow key={user.id} hover sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                          <TableRow
+                            key={user.id}
+                            hover
+                            onClick={() => router.push(`/user-management/view/${user.id}`)}
+                            sx={{
+                              "&:last-child td, &:last-child th": { border: 0 },
+                              cursor: "pointer"
+                            }}
+                          >
                             <TableCell>
                               <Stack direction="row" spacing={2} alignItems="center">
                                 <Avatar
@@ -262,7 +270,13 @@ const UserManagementPage = () => {
                               {getStatusChip(user)}
                             </TableCell>
                             <TableCell align="center">
-                              <IconButton onClick={(e) => handleMenuClick(e, user)} size="small">
+                              <IconButton
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleMenuClick(e, user);
+                                }}
+                                size="small"
+                              >
                                 <MoreVertIcon />
                               </IconButton>
                             </TableCell>
