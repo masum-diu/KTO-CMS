@@ -102,7 +102,7 @@ const menuItems = [
 ];
 
 const CrmLayout = ({ children }) => {
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
   const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   const router = useRouter();
@@ -266,10 +266,10 @@ const CrmLayout = ({ children }) => {
               <Stack spacing={3} direction="row" alignItems="center">
                 <Stack direction="column" alignItems="flex-start" pt={1}>
                   <Typography fontWeight="500" fontSize={16} color="#073064">
-                    John Doe
+                    {user?.name || "Admin User"}
                   </Typography>
-                  <Typography fontSize={12} color="#5A5A5A">
-                    Admin
+                  <Typography fontSize={12} color="#5A5A5A" sx={{ textTransform: 'capitalize' }}>
+                    {user?.role?.replace('_', ' ') || "Admin"}
                   </Typography>
                 </Stack>
                 {auth && (
