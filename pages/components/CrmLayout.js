@@ -30,6 +30,7 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HistoryIcon from '@mui/icons-material/History';
 import MenuIcon from '@mui/icons-material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
@@ -105,7 +106,6 @@ const menuItems = [
 
 const CrmLayout = ({ children }) => {
   const { user, logout } = useAuth();
-  const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const router = useRouter();
@@ -125,6 +125,7 @@ const CrmLayout = ({ children }) => {
   };
 
   const handleSignOut = () => {
+    handleClose();
     logout();
   };
 
@@ -312,15 +313,15 @@ const CrmLayout = ({ children }) => {
                 {/* Message icon */}
               </IconButton>
               <Stack spacing={3} direction="row" alignItems="center">
-                <Stack direction="column" alignItems="flex-start" pt={1} sx={{ display: { xs: 'none', sm: 'flex' } }}>
-                  <Typography fontWeight="500" fontSize={16} color="#073064">
+                <Stack direction="column" alignItems="flex-start" sx={{ display: { xs: 'none', sm: 'flex' } }}>
+                  <Typography fontWeight="600" fontSize={14} color="#073064" sx={{ lineHeight: 1.2 }}>
                     {user?.name || "Admin User"}
                   </Typography>
-                  <Typography fontSize={12} color="#5A5A5A" sx={{ textTransform: 'capitalize' }}>
+                  <Typography fontSize={11} color="#5A5A5A" sx={{ textTransform: 'capitalize' }}>
                     {user?.role?.replace('_', ' ') || "Admin"}
                   </Typography>
                 </Stack>
-                {auth && (
+                {user && (
                   <Box>
                     <IconButton
                       size="large"
@@ -328,16 +329,48 @@ const CrmLayout = ({ children }) => {
                       onClick={handleMenu}
                       color="inherit"
                     >
-                      <Avatar variant="circular" alt="Expand" width={20} src="" />
+                      <Avatar
+                        sx={{
+                          width: 38,
+                          height: 38,
+                          bgcolor: "#9B1FE8",
+                          fontSize: 16,
+                          fontWeight: 'bold',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {user?.name?.charAt(0).toUpperCase() || "A"}
+                      </Avatar>
                     </IconButton>
                     <Menu
                       anchorEl={anchorEl}
-                      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                       transformOrigin={{ vertical: "top", horizontal: "right" }}
                       open={Boolean(anchorEl)}
                       onClose={handleClose}
+                      disableScrollLock
+                      PaperProps={{
+                        sx: {
+                          mt: 1.5,
+                          boxShadow: "0px 4px 20px rgba(0,0,0,0.1)",
+                          borderRadius: "12px",
+                          minWidth: "150px"
+                        }
+                      }}
                     >
-                      <MenuItem onClick={handleSignOut}>Logout</MenuItem>
+                      <MenuItem onClick={handleSignOut} sx={{ py: 1.5, px: 2, borderRadius: "8px", mx: 1 }}>
+                        <ListItemIcon>
+                          <LogoutIcon fontSize="small" sx={{ color: "#d32f2f" }} />
+                        </ListItemIcon>
+                        <ListItemText
+                          primary="Logout"
+                          primaryTypographyProps={{
+                            fontSize: 14,
+                            fontWeight: 500,
+                            color: "#d32f2f"
+                          }}
+                        />
+                      </MenuItem>
                     </Menu>
                   </Box>
                 )}
