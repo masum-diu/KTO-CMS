@@ -12,6 +12,8 @@ import {
     IconButton,
     Alert,
     CircularProgress,
+    useTheme,
+    useMediaQuery,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useRouter } from "next/router";
@@ -20,6 +22,8 @@ import instance from "../api/api_instance";
 
 const CreateUserPage = () => {
     const router = useRouter();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [formData, setFormData] = useState({
@@ -141,11 +145,12 @@ const CreateUserPage = () => {
                                     </TextField>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Stack direction="row" spacing={2} justifyContent="flex-end" sx={{ mt: 2 }}>
+                                    <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="flex-end" sx={{ mt: 2 }}>
                                         <Button
                                             variant="outlined"
                                             onClick={() => router.back()}
                                             disabled={loading}
+                                            fullWidth={isMobile}
                                         >
                                             Cancel
                                         </Button>
@@ -154,6 +159,7 @@ const CreateUserPage = () => {
                                             variant="contained"
                                             sx={{ backgroundColor: "#9B1FE8", "&:hover": { backgroundColor: "#7B19BA" } }}
                                             disabled={loading}
+                                            fullWidth={isMobile}
                                         >
                                             {loading ? <CircularProgress size={24} color="inherit" /> : "Create User"}
                                         </Button>

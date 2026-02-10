@@ -50,7 +50,7 @@ const TabPanel = (props) => {
       aria-labelledby={`push-notifications-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box sx={{ p: { xs: 1, sm: 3 } }}>{children}</Box>}
     </div>
   );
 };
@@ -233,7 +233,14 @@ const PushNotificationsPage = () => {
 
         <Card>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs value={tabIndex} onChange={handleTabChange} aria-label="push notifications tabs">
+            <Tabs
+              value={tabIndex}
+              onChange={handleTabChange}
+              aria-label="push notifications tabs"
+              variant="scrollable"
+              scrollButtons="auto"
+              allowScrollButtonsMobile
+            >
               <Tab label="Send Custom Alert" />
               <Tab label="Notification Templates" />
               <Tab label="Notification Logs" />
@@ -265,8 +272,8 @@ const PushNotificationsPage = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
-              <Stack direction="row" spacing={2}>
-                <FormControl size="small" sx={{ minWidth: 200 }}>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+                <FormControl size="small" sx={{ minWidth: { xs: "100%", sm: 200 } }}>
                   <InputLabel>Target Audience</InputLabel>
                   <Select
                     label="Target Audience"
@@ -285,7 +292,7 @@ const PushNotificationsPage = () => {
                     variant="outlined"
                     value={targetValue}
                     onChange={(e) => setTargetValue(e.target.value)}
-                    sx={{ flexGrow: 1 }}
+                    sx={{ flexGrow: 1, width: { xs: "100%", sm: "auto" } }}
                   />
                 )}
               </Stack>

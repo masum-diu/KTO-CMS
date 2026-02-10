@@ -98,7 +98,7 @@ const DashboardPage = () => {
         {/* Overview Section */}
         <Grid container spacing={2} sx={{ mb: 3 }}>
           <Grid item xs={12} sm={4} md={2}>
-            <StatCard title="Total Users" value={counts?.users || 0} icon={<PeopleIcon />} />
+            <StatCard title="Users" value={counts?.users || 0} icon={<PeopleIcon />} />
           </Grid>
           <Grid item xs={12} sm={4} md={2}>
             <StatCard title="Children" value={counts?.children || 0} icon={<ChildCareIcon />} />

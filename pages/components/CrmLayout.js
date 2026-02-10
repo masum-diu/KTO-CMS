@@ -29,9 +29,11 @@ import ChatIcon from '@mui/icons-material/Chat';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HistoryIcon from '@mui/icons-material/History';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
+import { useTheme, useMediaQuery, Drawer } from "@mui/material";
 
 const menuItems = [
   {
@@ -105,7 +107,14 @@ const CrmLayout = ({ children }) => {
   const { user, logout } = useAuth();
   const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const router = useRouter();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -121,11 +130,104 @@ const CrmLayout = ({ children }) => {
 
   const handleItemClick = (id) => {
     router.push(`/${id}`);
+    if (isMobile) {
+      setMobileOpen(false);
+    }
   };
 
   const isSelected = (id) => {
     return router.pathname === `/${id}`;
   }
+
+  const drawerContent = (
+    <Box
+      sx={{
+        backgroundColor: "#fff",
+        width: "300px",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%"
+      }}
+    >
+      <Box sx={{
+        px: 3.5,
+        pt: 3,
+        pb: 2,
+        flexShrink: 0
+      }}>
+        <Stack
+          direction="column"
+          spacing={1}
+          justifyContent="center"
+          alignItems={"center"}
+        >
+          <img src="/logoImage.png" alt="Logo" width={100} />
+          <br />
+          <Typography
+            fontSize={16}
+            className="Bold"
+            textAlign={"center"}
+            sx={{ color: "#000", fontWeight: 'bold' }}
+          >
+            KTO <br />Content Management System
+          </Typography>
+        </Stack>
+      </Box>
+
+      {/* Scrollable Menu Items */}
+      <Box sx={{
+        flex: 1,
+        overflowY: "auto",
+        px: 2,
+        pb: 2
+      }}>
+        <List sx={{ py: 1 }}>
+          {menuItems.map((item, index) => (
+            <Box key={index}>
+              <ListItem
+                sx={{
+                  cursor: "pointer",
+                  width: "100%",
+                  height: "48px",
+                  color: isSelected(item.id) ? "#fff" : "#000",
+                  borderRadius: "12px",
+                  mb: 1,
+                  backgroundColor: isSelected(item.id)
+                    ? "#9B1FE8"
+                    : "transparent",
+                  "&:hover": {
+                    backgroundColor: isSelected(item.id)
+                      ? "#9B1FE8"
+                      : "rgba(255, 255, 255, 0.1)",
+                  },
+                }}
+                onClick={() => handleItemClick(item.id)}
+              >
+                <ListItemIcon
+                  sx={{
+                    color: isSelected(item.id) ? "#fff" : "#000",
+                    minWidth: "40px",
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography
+                      className={isSelected(item.id) ? "light" : "Medium"}
+                      style={{ fontSize: 14 }}
+                    >
+                      {item.text}
+                    </Typography>
+                  }
+                />
+              </ListItem>
+            </Box>
+          ))}
+        </List>
+      </Box>
+    </Box>
+  );
 
   return (
     <Box sx={{
@@ -134,95 +236,28 @@ const CrmLayout = ({ children }) => {
       overflow: "hidden",
       display: "flex"
     }}>
-      {/* Sidebar */}
-      <Box
+      {/* Sidebar - Desktop */}
+      {!isMobile && (
+        <Box sx={{ width: "300px", flexShrink: 0 }}>
+          {drawerContent}
+        </Box>
+      )}
+
+      {/* Sidebar - Mobile Drawer */}
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
         sx={{
-          backgroundColor: "#fff",
-          width: "300px",
-          display: "flex",
-          flexDirection: "column",
-          height: "100%"
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 300 },
         }}
       >
-
-        <Box sx={{
-          px: 3.5,
-          pt: 3,
-          pb: 2,
-          flexShrink: 0
-        }}>
-          <Stack
-            direction="column"
-            spacing={1}
-            justifyContent="center"
-            alignItems={"center"}
-          >
-            <img src="/logoImage.png" alt="Logo" width={100} />
-            <br />
-            <Typography
-              fontSize={16}
-              className="Bold"
-              textAlign={"center"}
-              sx={{ color: "#000", fontWeight: 'bold' }}
-            >
-              KTO <br />Content Management System
-            </Typography>
-          </Stack>
-        </Box>
-
-        {/* Scrollable Menu Items */}
-        <Box sx={{
-          flex: 1,
-          overflowY: "auto",
-          px: 2,
-          pb: 2
-        }}>
-          <List sx={{ py: 1 }}>
-            {menuItems.map((item, index) => (
-              <Box key={index}>
-                <ListItem
-                  sx={{
-                    cursor: "pointer",
-                    width: "100%",
-                    height: "48px",
-                    color: isSelected(item.id) ? "#fff" : "#000",
-                    borderRadius: "12px",
-                    mb: 1,
-                    backgroundColor: isSelected(item.id)
-                      ? "#9B1FE8"
-                      : "transparent",
-                    "&:hover": {
-                      backgroundColor: isSelected(item.id)
-                        ? "#9B1FE8"
-                        : "rgba(255, 255, 255, 0.1)",
-                    },
-                  }}
-                  onClick={() => handleItemClick(item.id)}
-                >
-                  <ListItemIcon
-                    sx={{
-                      color: isSelected(item.id) ? "#fff" : "#000",
-                      minWidth: "40px",
-                    }}
-                  >
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        className={isSelected(item.id) ? "light" : "Medium"}
-                        style={{ fontSize: 14 }}
-                      >
-                        {item.text}
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-              </Box>
-            ))}
-          </List>
-        </Box>
-      </Box>
+        {drawerContent}
+      </Drawer>
 
       {/* Main Content Area */}
       <Box sx={{
@@ -244,18 +279,31 @@ const CrmLayout = ({ children }) => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <TextField
-              size="small"
-              placeholder="Search..."
-              sx={{ width: "342px" }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
+            <Stack direction="row" alignItems="center" spacing={1}>
+              {isMobile && (
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+                  onClick={handleDrawerToggle}
+                  sx={{ mr: 1, color: "#9B1FE8" }}
+                >
+                  <MenuIcon />
+                </IconButton>
+              )}
+              <TextField
+                size="small"
+                placeholder="Search..."
+                sx={{ width: { xs: "100%", sm: "342px" } }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Stack>
             <Stack spacing={4} direction="row" alignItems="center">
               <IconButton>
                 {/* Notification icon */}
@@ -264,7 +312,7 @@ const CrmLayout = ({ children }) => {
                 {/* Message icon */}
               </IconButton>
               <Stack spacing={3} direction="row" alignItems="center">
-                <Stack direction="column" alignItems="flex-start" pt={1}>
+                <Stack direction="column" alignItems="flex-start" pt={1} sx={{ display: { xs: 'none', sm: 'flex' } }}>
                   <Typography fontWeight="500" fontSize={16} color="#073064">
                     {user?.name || "Admin User"}
                   </Typography>
@@ -302,7 +350,7 @@ const CrmLayout = ({ children }) => {
         <Box sx={{
           flex: 1,
           overflowY: "auto",
-          p: 3,
+          p: { xs: 2, sm: 3 },
           backgroundColor: "#eff1ee"
         }}>
           {children}

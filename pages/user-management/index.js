@@ -164,7 +164,7 @@ const UserManagementPage = () => {
   return (
     <CrmLayout>
       <Box>
-        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
+        <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }} spacing={2} sx={{ mb: 3 }}>
           <Typography sx={{ fontWeight: "bold", color: "#073064", fontSize: 24 }}>
             User Management
           </Typography>
@@ -172,7 +172,11 @@ const UserManagementPage = () => {
             variant="contained"
             startIcon={<AddIcon />}
             onClick={() => router.push("/user-management/create")}
-            sx={{ backgroundColor: "#9B1FE8", "&:hover": { backgroundColor: "#7B19BA" } }}
+            sx={{
+              backgroundColor: "#9B1FE8",
+              "&:hover": { backgroundColor: "#7B19BA" },
+              width: { xs: "100%", sm: "auto" }
+            }}
           >
             Add User
           </Button>
@@ -183,10 +187,10 @@ const UserManagementPage = () => {
             <Box sx={{ p: 3 }}>
               <TextField
                 size="small"
-                placeholder="Search by name, email, family ID..."
+                placeholder="Search..."
                 value={searchTerm}
                 onChange={handleSearchChange}
-                sx={{ width: "400px" }}
+                sx={{ width: { xs: "100%", sm: "400px" } }}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">

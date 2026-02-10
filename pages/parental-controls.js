@@ -50,7 +50,7 @@ const TabPanel = (props) => {
       aria-labelledby={`parental-controls-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box sx={{ p: { xs: 1, sm: 3 } }}>{children}</Box>}
     </div>
   );
 };
@@ -126,8 +126,8 @@ const ParentalControlsPage = () => {
 
         <Card>
           <CardContent sx={{ pb: 1 }}>
-            <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
-              <FormControl size="small" sx={{ minWidth: 240 }}>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 2 }}>
+              <FormControl size="small" sx={{ minWidth: { xs: "100%", sm: 240 } }}>
                 <InputLabel>Select Parent</InputLabel>
                 <Select
                   value={selectedParent}
@@ -149,7 +149,7 @@ const ParentalControlsPage = () => {
                 </Select>
               </FormControl>
 
-              <FormControl size="small" sx={{ minWidth: 240 }} disabled={!selectedParent}>
+              <FormControl size="small" sx={{ minWidth: { xs: "100%", sm: 240 } }} disabled={!selectedParent}>
                 <InputLabel>Select Child</InputLabel>
                 <Select
                   value={selectedChild}
@@ -170,7 +170,14 @@ const ParentalControlsPage = () => {
             </Stack>
 
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <Tabs value={tabIndex} onChange={handleTabChange} aria-label="parental controls tabs">
+              <Tabs
+                value={tabIndex}
+                onChange={handleTabChange}
+                aria-label="parental controls tabs"
+                variant="scrollable"
+                scrollButtons="auto"
+                allowScrollButtonsMobile
+              >
                 <Tab label="Screen Time Rules" disabled={!selectedChild} />
                 <Tab label="App Management" disabled={!selectedChild} />
                 <Tab label="Keyword Alerts" disabled={!selectedChild} />
@@ -184,24 +191,30 @@ const ParentalControlsPage = () => {
               {/* Previous TabPanels ... */}
               <TabPanel value={tabIndex} index={0}>
                 <Typography variant="h6" gutterBottom>Daily Time Limits</Typography>
-                <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 4 }}>
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems={{ xs: "flex-start", sm: "center" }} sx={{ mb: 4 }}>
                   <FormControlLabel control={<Switch defaultChecked />} label="Enable Daily Limit" />
-                  <TextField label="Hours" type="number" size="small" defaultValue={2} sx={{ width: 100 }} />
-                  <TextField label="Minutes" type="number" size="small" defaultValue={30} sx={{ width: 100 }} />
+                  <Stack direction="row" spacing={1}>
+                    <TextField label="Hours" type="number" size="small" defaultValue={2} sx={{ width: 80 }} />
+                    <TextField label="Minutes" type="number" size="small" defaultValue={30} sx={{ width: 80 }} />
+                  </Stack>
                 </Stack>
                 <Divider sx={{ my: 2 }} />
                 <Typography variant="h6" gutterBottom>Restricted Times (School/Sleep)</Typography>
                 <FormControlLabel control={<Switch />} label="Enable Restricted Times" />
                 <Stack spacing={2} sx={{ mt: 2 }}>
-                  <Stack direction="row" spacing={2} alignItems="center">
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems={{ xs: "flex-start", sm: "center" }}>
                     <Typography sx={{ width: 100 }}>Weekdays</Typography>
-                    <TextField label="From" type="time" size="small" defaultValue="08:00" InputLabelProps={{ shrink: true }} />
-                    <TextField label="To" type="time" size="small" defaultValue="15:00" InputLabelProps={{ shrink: true }} />
+                    <Stack direction="row" spacing={1}>
+                      <TextField label="From" type="time" size="small" defaultValue="08:00" InputLabelProps={{ shrink: true }} />
+                      <TextField label="To" type="time" size="small" defaultValue="15:00" InputLabelProps={{ shrink: true }} />
+                    </Stack>
                   </Stack>
-                  <Stack direction="row" spacing={2} alignItems="center">
+                  <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems={{ xs: "flex-start", sm: "center" }}>
                     <Typography sx={{ width: 100 }}>Bedtime</Typography>
-                    <TextField label="From" type="time" size="small" defaultValue="21:00" InputLabelProps={{ shrink: true }} />
-                    <TextField label="To" type="time" size="small" defaultValue="07:00" InputLabelProps={{ shrink: true }} />
+                    <Stack direction="row" spacing={1}>
+                      <TextField label="From" type="time" size="small" defaultValue="21:00" InputLabelProps={{ shrink: true }} />
+                      <TextField label="To" type="time" size="small" defaultValue="07:00" InputLabelProps={{ shrink: true }} />
+                    </Stack>
                   </Stack>
                 </Stack>
               </TabPanel>
