@@ -48,6 +48,11 @@ const menuItems = [
     text: "User Management",
   },
   {
+    id: "parental-controls",
+    icon: <SupervisorAccountIcon />,
+    text: "Parental Controls",
+  },
+  {
     id: "location-tracking",
     icon: <GpsFixedIcon />,
     text: "Location Tracking",
@@ -57,11 +62,6 @@ const menuItems = [
   //   icon: <TrackChangesIcon />,
   //   text: "App & Website Usage",
   // },
-  {
-    id: "parental-controls",
-    icon: <SupervisorAccountIcon />,
-    text: "Parental Controls",
-  },
   {
     id: "geofencing",
     icon: <MapIcon />,
