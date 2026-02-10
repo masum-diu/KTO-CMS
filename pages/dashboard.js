@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   Avatar,
   Box,
@@ -10,59 +11,20 @@ import {
   ListItemAvatar,
   ListItemText,
   Typography,
-  LinearProgress,
-  Button,
+  CircularProgress,
+  Chip,
+  Stack,
 } from "@mui/material";
 import CrmLayout from "./components/CrmLayout";
 import DevicesIcon from "@mui/icons-material/Devices";
 import PeopleIcon from "@mui/icons-material/People";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import WifiIcon from "@mui/icons-material/Wifi";
-import WarningIcon from "@mui/icons-material/Warning";
-import BatteryAlertIcon from "@mui/icons-material/BatteryAlert";
-import LockIcon from "@mui/icons-material/Lock";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
-// Mock Data
-const overviewStats = {
-  totalDevices: 3,
-  onlineDevices: 2,
-  familyMembers: 4,
-  activeAlerts: 3,
-};
-
-const recentAlerts = [
-  {
-    id: 1,
-    icon: <WarningIcon color="error" />,
-    primary: "Failed Login Attempt",
-    secondary: "From IP: 10.0.0.5 on John's iPhone",
-  },
-  {
-    id: 2,
-    icon: <BatteryAlertIcon color="warning" />,
-    primary: "Low Battery",
-    secondary: "Jane's Samsung S22 is at 15%",
-  },
-  {
-    id: 3,
-    icon: <LockIcon color="info" />,
-    primary: "Device Locked",
-    secondary: "Kid's Tablet was locked remotely",
-  },
-];
-
-const deviceStats = [
-  { name: "John's iPhone 13", battery: 85, status: "Online" },
-  { name: "Jane's Samsung S22", battery: 15, status: "Offline" },
-  { name: "Kid's Tablet", battery: 95, status: "Online" },
-];
-
-const usageInsights = [
-  { name: "YouTube", time: "3h 45m" },
-  { name: "TikTok", time: "2h 15m" },
-  { name: "Roblox", time: "1h 30m" },
-];
+import ChildCareIcon from "@mui/icons-material/ChildCare";
+import SecurityIcon from "@mui/icons-material/Security";
+import HistoryIcon from "@mui/icons-material/History";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ErrorIcon from "@mui/icons-material/Error";
+import instance from "./api/api_instance";
 
 const StatCard = ({ title, value, icon }) => (
   <Card>
@@ -70,10 +32,10 @@ const StatCard = ({ title, value, icon }) => (
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Avatar sx={{ bgcolor: "#073064", mr: 2 }}>{icon}</Avatar>
         <Box>
-          <Typography variant="h5" component="div">
+          <Typography variant="h5" component="div" sx={{ fontWeight: 'bold' }}>
             {value}
           </Typography>
-          <Typography color="text.secondary">{title}</Typography>
+          <Typography color="text.secondary" variant="body2">{title}</Typography>
         </Box>
       </Box>
     </CardContent>
@@ -81,42 +43,107 @@ const StatCard = ({ title, value, icon }) => (
 );
 
 const DashboardPage = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        const response = await instance.get("/dashboard");
+        if (response.data.success) {
+          setData(response.data.data);
+        } else {
+          setError(response.data.message || "Failed to fetch dashboard data");
+        }
+      } catch (err) {
+        setError(err.message || "An error occurred while fetching data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
+
+  if (loading) {
+    return (
+      <CrmLayout>
+        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "80vh" }}>
+          <CircularProgress />
+        </Box>
+      </CrmLayout>
+    );
+  }
+
+  if (error) {
+    return (
+      <CrmLayout>
+        <Box sx={{ p: 3 }}>
+          <Typography color="error">Error: {error}</Typography>
+        </Box>
+      </CrmLayout>
+    );
+  }
+
+  const { counts, recentUsers, recentNotifications } = data || {};
+
   return (
     <CrmLayout>
       <Box>
         <Typography variant="h4" sx={{ mb: 3, fontWeight: "bold", color: "#073064" }}>
-          Dashboard
+          Dashboard Overview
         </Typography>
 
         {/* Overview Section */}
-        <Grid container spacing={3} sx={{ mb: 3 }}>
-          <Grid item xs={12} sm={6} md={3}>
-            <StatCard title="Total Devices" value={overviewStats.totalDevices} icon={<DevicesIcon />} />
+        <Grid container spacing={2} sx={{ mb: 3 }}>
+          <Grid item xs={12} sm={4} md={2}>
+            <StatCard title="Total Users" value={counts?.users || 0} icon={<PeopleIcon />} />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <StatCard title="Devices Online" value={overviewStats.onlineDevices} icon={<WifiIcon />} />
+          <Grid item xs={12} sm={4} md={2}>
+            <StatCard title="Children" value={counts?.children || 0} icon={<ChildCareIcon />} />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <StatCard title="Family Members" value={overviewStats.familyMembers} icon={<PeopleIcon />} />
+          <Grid item xs={12} sm={4} md={2}>
+            <StatCard title="Devices" value={counts?.devices || 0} icon={<DevicesIcon />} />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <StatCard title="Active Alerts" value={overviewStats.activeAlerts} icon={<NotificationsActiveIcon />} />
+          <Grid item xs={12} sm={4} md={2}>
+            <StatCard title="Notifications" value={counts?.notifications || 0} icon={<NotificationsActiveIcon />} />
+          </Grid>
+          <Grid item xs={12} sm={4} md={2}>
+            <StatCard title="Alerts" value={counts?.alerts || 0} icon={<SecurityIcon />} />
+          </Grid>
+          <Grid item xs={12} sm={4} md={2}>
+            <StatCard title="Activities" value={counts?.activities || 0} icon={<HistoryIcon />} />
           </Grid>
         </Grid>
 
         <Grid container spacing={3}>
-          {/* Alerts & Notifications */}
+          {/* Recent Users */}
           <Grid item xs={12} md={6}>
-            <Card>
-              <CardHeader title="Recent Alerts & Notifications" />
+            <Card sx={{ height: '100%' }}>
+              <CardHeader title="Recent Users" sx={{ color: "#073064", borderBottom: '1px solid #efefef' }} />
               <CardContent>
                 <List>
-                  {recentAlerts.map((alert) => (
-                    <ListItem key={alert.id} disablePadding>
+                  {recentUsers?.map((user) => (
+                    <ListItem key={user.id} divider>
                       <ListItemAvatar>
-                        <Avatar sx={{ bgcolor: "transparent" }}>{alert.icon}</Avatar>
+                        <Avatar src={user.image} alt={user.name}>
+                          {user.name ? user.name[0] : <PeopleIcon />}
+                        </Avatar>
                       </ListItemAvatar>
-                      <ListItemText primary={alert.primary} secondary={alert.secondary} />
+                      <ListItemText
+                        primary={user.name || user.email}
+                        secondary={
+                          <>
+                            <Typography variant="caption" display="block" color="text.secondary">
+                              Family ID: {user.familyId}
+                            </Typography>
+                            <Typography variant="caption" color="text.secondary">
+                              Joined: {new Date(user.createdAt).toLocaleDateString()}
+                            </Typography>
+                          </>
+                        }
+                      />
                     </ListItem>
                   ))}
                 </List>
@@ -124,59 +151,51 @@ const DashboardPage = () => {
             </Card>
           </Grid>
 
-          {/* Device & Family Stats */}
+          {/* Recent Notifications */}
           <Grid item xs={12} md={6}>
-            <Card>
-              <CardHeader title="Device & Family Stats" />
+            <Card sx={{ height: '100%' }}>
+              <CardHeader title="Recent Notifications" sx={{ color: "#073064", borderBottom: '1px solid #efefef' }} />
               <CardContent>
-                {deviceStats.map((device) => (
-                  <Box key={device.name} sx={{ mb: 2 }}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.5 }}>
-                      <Typography variant="body2">{device.name}</Typography>
-                      <Typography variant="body2" color={device.battery > 20 ? "text.secondary" : "error"}>
-                        {device.battery}%
-                      </Typography>
-                    </Box>
-                    <LinearProgress
-                      variant="determinate"
-                      value={device.battery}
-                      color={device.battery > 20 ? "primary" : "error"}
-                    />
-                  </Box>
-                ))}
-              </CardContent>
-            </Card>
-          </Grid>
-
-          {/* Usage Insights */}
-          <Grid item xs={12}>
-            <Card>
-              <CardHeader
-                title="Usage Insights"
-                subheader="Top used apps across all devices today"
-                action={
-                  <Button
-                    size="small"
-                    endIcon={<ArrowForwardIcon />}
-                    // onClick={() => router.push('/app-usage')} // Example navigation
-                  >
-                    View Details
-                  </Button>
-                }
-              />
-              <CardContent>
-                <Grid container spacing={2}>
-                  {usageInsights.map((app) => (
-                    <Grid item xs={12} sm={4} key={app.name}>
-                      <Card variant="outlined">
-                        <CardContent>
-                          <Typography variant="h6">{app.name}</Typography>
-                          <Typography color="text.secondary">{app.time}</Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
+                <List>
+                  {recentNotifications?.map((notif) => (
+                    <ListItem key={notif.id} divider alignItems="flex-start">
+                      <ListItemAvatar>
+                        <Avatar sx={{ bgcolor: "transparent" }}>
+                          <NotificationsActiveIcon color="primary" />
+                        </Avatar>
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={notif.title}
+                        secondary={
+                          <Box component="span">
+                            <Typography variant="body2" color="text.primary" sx={{ mb: 1 }}>
+                              {notif.message}
+                            </Typography>
+                            <Stack direction="row" spacing={1} sx={{ mt: 1, mb: 1 }}>
+                              <Chip
+                                icon={<CheckCircleIcon style={{ fontSize: 14 }} />}
+                                label={`Success: ${notif.successCount}`}
+                                size="small"
+                                color="success"
+                                variant="outlined"
+                              />
+                              <Chip
+                                icon={<ErrorIcon style={{ fontSize: 14 }} />}
+                                label={`Failed: ${notif.failureCount}`}
+                                size="small"
+                                color="error"
+                                variant="outlined"
+                              />
+                            </Stack>
+                            <Typography variant="caption" color="text.secondary">
+                              Sent to {notif.recipientsCount} recipients • {new Date(notif.createdAt).toLocaleString()}
+                            </Typography>
+                          </Box>
+                        }
+                      />
+                    </ListItem>
                   ))}
-                </Grid>
+                </List>
               </CardContent>
             </Card>
           </Grid>
