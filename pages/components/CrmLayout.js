@@ -69,11 +69,11 @@ const menuItems = [
     icon: <SosIcon />,
     text: "SOS & Emergency",
   },
-  {
-    id: "device-control",
-    icon: <PhonelinkSetupIcon />,
-    text: "Device Control",
-  },
+  // {
+  //   id: "device-control",
+  //   icon: <PhonelinkSetupIcon />,
+  //   text: "Device Control",
+  // },
   {
     id: "push-notifications",
     icon: <NotificationsActiveIcon />,
