@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import instance from "./api/api_instance";
+import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,18 +30,27 @@ const Login = () => {
     setAge(event.target.value);
   };
 
+  const { login } = useAuth();
+
   const handleLogin = async (e) => {
-    router.push("/home");
     e.preventDefault();
     setLoading(true);
     try {
-      // const response = await instance.post("/login", { email, password });
-      // //   console.log("Login response:", response);
-      // router.push("/home");
-      // localStorage.setItem("token", response?.data?.token);
+      const response = await instance.post("/users/login", { email, password });
+      if (response.data.success) {
+        const { accessToken, user } = response.data.data;
+        login(accessToken, user);
+      } else {
+        alert(response.data.message || "Login failed");
+      }
     } catch (error) {
-      // toast.error('Login failed. Please try again.');
-      console.error("Authentication failed:", error);
+      console.error("Authentication failed details:", {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status,
+        headers: error.response?.headers
+      });
+      alert(error.response?.data?.message || error.message || "Login failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -56,7 +66,7 @@ const Login = () => {
 
   return (
     <Grid container spacing={0}>
-      <Grid        
+      <Grid
         item
         xs={12}
         md={12}
@@ -154,7 +164,7 @@ const Login = () => {
                     fontSize: 18,
                     backgroundColor: "#9B1FE8",
                     color: "#fff",
-                    
+
                     "&:hover": {
                       backgroundColor: "#8A1CC8",
                       color: "#fff",

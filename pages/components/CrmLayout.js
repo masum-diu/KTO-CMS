@@ -120,15 +120,10 @@ const CrmLayout = ({ children }) => {
   };
 
   const handleItemClick = (id) => {
-    if (id === 'home') {
-      router.push('/home');
-    } else {
-      router.push(`/${id}`);
-    }
+    router.push(`/${id}`);
   };
 
   const isSelected = (id) => {
-    if (id === 'home') return router.pathname === '/home';
     return router.pathname === `/${id}`;
   }
 
@@ -149,33 +144,33 @@ const CrmLayout = ({ children }) => {
           height: "100%"
         }}
       >
-      
-          <Box sx={{
-            px: 3.5,
-            pt: 3,
-            pb: 2,
-            flexShrink: 0
-          }}>
-            <Stack
-              direction="column"
-              spacing={1}
-              justifyContent="center"
-              alignItems={"center"}
-            >
-              <img src="/logoImage.png" alt="Logo" width={100}  />
-              <br />
-              <Typography
-                fontSize={16}
-                className="Bold"
-                textAlign={"center"}
-                sx={{ color: "#000" ,fontWeight:'bold'}}
-              >
-                KTO <br />Content Management System
-              </Typography>
-            </Stack>
-          </Box>
 
-          {/* Scrollable Menu Items */}
+        <Box sx={{
+          px: 3.5,
+          pt: 3,
+          pb: 2,
+          flexShrink: 0
+        }}>
+          <Stack
+            direction="column"
+            spacing={1}
+            justifyContent="center"
+            alignItems={"center"}
+          >
+            <img src="/logoImage.png" alt="Logo" width={100} />
+            <br />
+            <Typography
+              fontSize={16}
+              className="Bold"
+              textAlign={"center"}
+              sx={{ color: "#000", fontWeight: 'bold' }}
+            >
+              KTO <br />Content Management System
+            </Typography>
+          </Stack>
+        </Box>
+
+        {/* Scrollable Menu Items */}
         <Box sx={{
           flex: 1,
           overflowY: "auto",
@@ -190,23 +185,23 @@ const CrmLayout = ({ children }) => {
                     cursor: "pointer",
                     width: "100%",
                     height: "48px",
-                    color: isSelected(item.id === 'dashboard' ? 'home' : item.id) ? "#fff" : "#000",
+                    color: isSelected(item.id) ? "#fff" : "#000",
                     borderRadius: "12px",
                     mb: 1,
-                    backgroundColor: isSelected(item.id === 'dashboard' ? 'home' : item.id)
+                    backgroundColor: isSelected(item.id)
                       ? "#9B1FE8"
                       : "transparent",
                     "&:hover": {
-                      backgroundColor: isSelected(item.id === 'dashboard' ? 'home' : item.id)
+                      backgroundColor: isSelected(item.id)
                         ? "#9B1FE8"
                         : "rgba(255, 255, 255, 0.1)",
                     },
                   }}
-                  onClick={() => handleItemClick(item.id === 'dashboard' ? 'home' : item.id)}
+                  onClick={() => handleItemClick(item.id)}
                 >
                   <ListItemIcon
                     sx={{
-                      color: isSelected(item.id === 'dashboard' ? 'home' : item.id) ? "#fff" : "#000",
+                      color: isSelected(item.id) ? "#fff" : "#000",
                       minWidth: "40px",
                     }}
                   >
@@ -215,7 +210,7 @@ const CrmLayout = ({ children }) => {
                   <ListItemText
                     primary={
                       <Typography
-                        className={isSelected(item.id === 'dashboard' ? 'home' : item.id) ? "light" : "Medium"}
+                        className={isSelected(item.id) ? "light" : "Medium"}
                         style={{ fontSize: 14 }}
                       >
                         {item.text}
@@ -308,7 +303,7 @@ const CrmLayout = ({ children }) => {
           flex: 1,
           overflowY: "auto",
           p: 3,
-          backgroundColor:"#eff1ee"
+          backgroundColor: "#eff1ee"
         }}>
           {children}
         </Box>

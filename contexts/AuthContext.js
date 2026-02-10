@@ -14,13 +14,16 @@ export function AuthProvider({ children }) {
     if (token) {
       // You might want to verify the token with your backend here
       setUser({ token });
+      if (router.pathname === "/") {
+        router.push("/dashboard");
+      }
     }
   }, []);
 
-  const login = (token) => {
+  const login = (token, userData) => {
     localStorage.setItem("token", token);
-    setUser({ token });
-    router.push("/");
+    setUser({ token, ...userData });
+    router.push("/dashboard");
   };
 
   const logout = () => {
