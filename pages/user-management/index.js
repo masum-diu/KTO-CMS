@@ -46,20 +46,39 @@ const UserManagementPage = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(15);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchTerm]);
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [page, rowsPerPage, debouncedSearchTerm]);
 
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await instance.get("/users");
+      const response = await instance.get("/users", {
+        params: {
+          page: page + 1,
+          limit: rowsPerPage,
+          searchTerm: debouncedSearchTerm,
+        },
+      });
       if (response.data.success) {
         setUsers(response.data.data);
+        setTotal(response.data.meta?.total || response.data.data.length);
       }
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -152,14 +171,9 @@ const UserManagementPage = () => {
     }
   };
 
-  const filteredUsers = users.filter(user =>
-    (user.name?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
-    (user.email?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
-    (user.familyId?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
-    (user.familyName?.toLowerCase() || "").includes(searchTerm.toLowerCase())
-  );
-
-  const paginatedUsers = filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+  // No longer needed due to server-side filtering
+  // const filteredUsers = users.filter(user => ...
+  // const paginatedUsers = filteredUsers.slice(...
 
   return (
     <CrmLayout>
@@ -187,7 +201,7 @@ const UserManagementPage = () => {
             <Box sx={{ p: 3 }}>
               <TextField
                 size="small"
-                placeholder="Search..."
+                placeholder="Search by name, email, or family ID..."
                 value={searchTerm}
                 onChange={handleSearchChange}
                 sx={{ width: { xs: "100%", sm: "400px" } }}
@@ -220,8 +234,8 @@ const UserManagementPage = () => {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {paginatedUsers.length > 0 ? (
-                        paginatedUsers.map((user) => (
+                      {users.length > 0 ? (
+                        users.map((user) => (
                           <TableRow
                             key={user.id}
                             hover
@@ -304,9 +318,9 @@ const UserManagementPage = () => {
                   </Table>
                 </TableContainer>
                 <TablePagination
-                  rowsPerPageOptions={[5, 10, 25]}
+                  rowsPerPageOptions={[5, 10, 15, 25, 50]}
                   component="div"
-                  count={filteredUsers.length}
+                  count={total}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
