@@ -139,10 +139,17 @@ const UserManagementPage = () => {
     if (!user.isVerified) {
       return <Chip label="Unverified" color="warning" size="small" variant="outlined" />;
     }
-    if (user.role === "super_admin") {
-      return <Chip label="Super Admin" color="primary" size="small" />;
+
+    switch (user.role) {
+      case "super_admin":
+        return <Chip label="Super Admin" color="primary" size="small" />;
+      case "admin":
+        return <Chip label="Admin" color="secondary" size="small" />;
+      case "user":
+        return <Chip label="User" color="info" size="small" />;
+      default:
+        return <Chip label="Active" color="success" size="small" />;
     }
-    return <Chip label="Active" color="success" size="small" />;
   };
 
   const filteredUsers = users.filter(user =>

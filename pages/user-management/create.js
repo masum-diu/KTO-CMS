@@ -137,6 +137,7 @@ const CreateUserPage = () => {
                                     >
                                         <MenuItem value="admin">Admin</MenuItem>
                                         <MenuItem value="super_admin">Super Admin</MenuItem>
+                                        <MenuItem value="user">User</MenuItem>
                                     </TextField>
                                 </Grid>
                                 <Grid item xs={12}>
